@@ -5,7 +5,6 @@
         <link rel="stylesheet" type="text/css" href="goals.css" />
     </head>
     <body>
-        <!--<h1>Goals</h1>-->
         <canvas id="myCanvas" height="100">
         Your browser does not support the canvas element.
         </canvas>
@@ -35,9 +34,8 @@
 				my_gradient.addColorStop(0,"#222222");
 				my_gradient.addColorStop(1,"#888888");
 				context.fillStyle=my_gradient;
-
-                //context.fillStyle = "#333333";
                 context.fillRect(0,50,canvas.width,50);
+
                 // lines
                 context.strokeStyle = "#FFFFFF";
                 context.setLineDash([15, 15]);
@@ -60,6 +58,12 @@
 				context.moveTo(0,96);
 				context.lineTo(canvas.width, 96);
 				context.stroke();	
+				
+				var img = new Image();
+				img.onload = function () {
+					context.drawImage(img, 0, 50, 100, 50);
+				}
+				img.src = "pc7Kaynqi.svg";
 			
             }
         </script>
