@@ -1,14 +1,15 @@
-// Constants
-const roadCanvas = "roadCanvas";
-
 // Functions
 function drawRoadCanvas() {
-	var canvas = document.getElementById(roadCanvas);
+	var canvas = document.getElementById('roadCanvas');
     var context = canvas.getContext('2d');
-    var carXPosition = -100
+	var totalGoal = document.getElementById('totalGoal');
+	var achieve = document.getElementById('achieve');
+    var carXPosition = 0
 
 	// resize the canvas to fill browser window dynamically
 	window.addEventListener('resize', resizeCanvas, false);
+
+	resizeCanvas();
 
 	function resizeCanvas() {
 		canvas.width = window.innerWidth;
@@ -19,19 +20,17 @@ function drawRoadCanvas() {
 		 */
 		drawStuff();
 	}
-
-	resizeCanvas();
-
+	
 	function drawStuff() {
 		// road
 		var my_gradient=context.createLinearGradient(0,50,0,100);
-		my_gradient.addColorStop(0,"#222222");
-		my_gradient.addColorStop(1,"#888888");
+		my_gradient.addColorStop(0,'#222222');
+		my_gradient.addColorStop(1,'#888888');
 		context.fillStyle=my_gradient;
 		context.fillRect(0,50,canvas.width,50);
 
 		// lines
-		context.strokeStyle = "#FFFFFF";
+		context.strokeStyle = '#FFFFFF';
 		context.setLineDash([15, 15]);
 		context.lineWidth = 5;
 		context.beginPath();
@@ -56,8 +55,10 @@ function drawRoadCanvas() {
 		// car
 		var img = new Image();
 		img.onload = function () {
+			carXPosition = (achieve.value * canvas.width / totalGoal.value) -100;
 			context.drawImage(img, carXPosition, 50, 100, 50);
 		}
-		img.src = "img/pc7Kaynqi.svg";
+		img.id = 'car';
+		img.src = 'img/pc7Kaynqi.svg';
 	}
 }

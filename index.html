@@ -5,17 +5,14 @@
         <link rel="stylesheet" type="text/css" href="css/goals.css" />
         <script src="js/goals.js"></script>
     </head>
-    <body>
+    <body onload="drawRoadCanvas();">
         <canvas id="roadCanvas" height="100">
         Your browser does not support the canvas element.
         </canvas>
-
-        <script type="text/javascript">drawRoadCanvas();</script>
-
 		<br>
 		<form>
-			Goal:<input type="number" value=1 name="totalGoal"><br>
-			Achieve:<input type="number" value=0 name="achieve">
+			Goal:<input type="number" value=2 id="totalGoal" onchange="drawRoadCanvas();"><br>
+			Achieve:<input type="number" value=1 id="achieve" onchange="drawRoadCanvas();">
 		</form> 
 
     </body>
