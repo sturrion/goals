@@ -1,7 +1,8 @@
 * {
     margin:0;
-    padding:0;
-} /* to remove the top and left whitespace */
+    padding:0;  /* to remove the top and left whitespace */
+    font-family: monospace;
+}
 
 html, body {
     width:100%;
@@ -11,3 +12,9 @@ html, body {
 canvas {
     display:block;
 } /* To remove the scrollbars */
+
+form {
+    padding: 10px;
+    line-height: 200%;
+    font-size: 120%;
+}

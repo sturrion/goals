@@ -1,10 +1,10 @@
 // Functions
 function drawRoadCanvas() {
 	var canvas = document.getElementById('roadCanvas');
-    var context = canvas.getContext('2d');
+  var context = canvas.getContext('2d');
 	var totalGoal = document.getElementById('totalGoal');
 	var achieve = document.getElementById('achieve');
-    var carXPosition = 0
+  var carXPosition = 0
 
 	// resize the canvas to fill browser window dynamically
 	window.addEventListener('resize', resizeCanvas, false);
@@ -20,7 +20,7 @@ function drawRoadCanvas() {
 		 */
 		drawStuff();
 	}
-	
+
 	function drawStuff() {
 		// road
 		var my_gradient=context.createLinearGradient(0,50,0,100);
@@ -37,25 +37,26 @@ function drawRoadCanvas() {
 		context.moveTo(0,73);
 		context.lineTo(canvas.width, 73);
 		context.stroke();
-		
+
 		context.setLineDash([]);
 		context.lineWidth = 1.5;
 		context.beginPath();
 		context.moveTo(0,53);
 		context.lineTo(canvas.width, 53);
-		context.stroke();	
-		
+		context.stroke();
+
 		context.setLineDash([]);
 		context.lineWidth = 2;
 		context.beginPath();
 		context.moveTo(0,96);
 		context.lineTo(canvas.width, 96);
-		context.stroke();	
-		
+		context.stroke();
+
 		// car
 		var img = new Image();
+		var roadLong = canvas.width - 100;
 		img.onload = function () {
-			carXPosition = (achieve.value * canvas.width / totalGoal.value) -100;
+			carXPosition = (achieve.value * roadLong / totalGoal.value);
 			context.drawImage(img, carXPosition, 50, 100, 50);
 		}
 		img.id = 'car';

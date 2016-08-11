@@ -10,10 +10,10 @@
         Your browser does not support the canvas element.
         </canvas>
 		<br>
-		<form>
-			Hi, tell me, what is your goal? 2 houses, 7 children, 1 million dollar?<input type="number" value=2 step="any" id="totalGoal" onchange="drawRoadCanvas();"><br>
-			And then... what is your achievement?<input type="number" value=1 step="any" id="achieve" onchange="drawRoadCanvas();">
-		</form> 
+		<form oninput="drawRoadCanvas();">
+			Hi, tell me, what is your goal? 2 houses, 7 children, 1 million dollar? <input type="number" value=1 step="any" id="totalGoal"><br>
+			And then... what is your achievement? <input type="number" value=0 step="any" id="achieve">
+		</form>
 
     </body>
 </html>
